@@ -1,0 +1,111 @@
+{
+ "kind": "calendar#events",
+ "etag": "\"1416435620935000\"",
+ "summary": "ProjectCalendar",
+ "description": "This is the calendar we will use for the project.",
+ "updated": "2014-11-19T22:20:20.935Z",
+ "timeZone": "America/New_York",
+ "accessRole": "owner",
+ "defaultReminders": [],
+ "nextSyncToken": "CNjqofDZh8ICENjqofDZh8ICGAU=",
+ "items": [
+  {
+   "kind": "calendar#event",
+   "etag": "\"2832865783184000\"",
+   "id": "2pfnqomti1nsju5ebsivvt76jc",
+   "status": "confirmed",
+   "htmlLink": "https://www.google.com/calendar/event?eid=MnBmbnFvbXRpMW5zanU1ZWJzaXZ2dDc2amMgdnNjbGtyZnI3OWpzOTEzYTlvYzdrNTJkYm9AZw",
+   "created": "2014-11-19T21:34:51.000Z",
+   "updated": "2014-11-19T21:34:51.592Z",
+   "summary": "Lunch Time!",
+   "description": "We're going to have lunch.",
+   "location": "The Pie Men, 57 Mahana Rd, Te Rapa, St Andrews 3200, New Zealand",
+   "creator": {
+    "email": "berrproj2@gmail.com",
+    "displayName": "Kevin Tigran"
+   },
+   "organizer": {
+    "email": "vsclkrfr79js913a9oc7k52dbo@group.calendar.google.com",
+    "displayName": "ProjectCalendar",
+    "self": true
+   },
+   "start": {
+    "dateTime": "2014-12-01T17:00:00-05:00"
+   },
+   "end": {
+    "dateTime": "2014-12-01T18:00:00-05:00"
+   },
+   "iCalUID": "2pfnqomti1nsju5ebsivvt76jc@google.com",
+   "sequence": 0,
+   "reminders": {
+    "useDefault": true
+   }
+  },
+  {
+   "kind": "calendar#event",
+   "etag": "\"2832870566428000\"",
+   "id": "q7midp27vrp6ofl207eqgklf3s",
+   "status": "confirmed",
+   "htmlLink": "https://www.google.com/calendar/event?eid=cTdtaWRwMjd2cnA2b2ZsMjA3ZXFna2xmM3NfMjAxNDExMTlUMjEwMDAwWiB2c2Nsa3Jmcjc5anM5MTNhOW9jN2s1MmRib0Bn",
+   "created": "2014-11-19T22:14:43.000Z",
+   "updated": "2014-11-19T22:14:43.214Z",
+   "summary": "dinner",
+   "creator": {
+    "email": "berrproj2@gmail.com",
+    "displayName": "Kevin Tigran"
+   },
+   "organizer": {
+    "email": "vsclkrfr79js913a9oc7k52dbo@group.calendar.google.com",
+    "displayName": "ProjectCalendar",
+    "self": true
+   },
+   "start": {
+    "dateTime": "2014-11-19T16:00:00-05:00",
+    "timeZone": "America/New_York"
+   },
+   "end": {
+    "dateTime": "2014-11-19T17:00:00-05:00",
+    "timeZone": "America/New_York"
+   },
+   "recurrence": [
+    "RRULE:FREQ=WEEKLY;WKST=MO;INTERVAL=1;BYDAY=TU"
+   ],
+   "iCalUID": "q7midp27vrp6ofl207eqgklf3s@google.com",
+   "sequence": 0,
+   "reminders": {
+    "useDefault": true
+   }
+  },
+  {
+   "kind": "calendar#event",
+   "etag": "\"2832871241576000\"",
+   "id": "mjt87ctr0p06leajqc7r28i710",
+   "status": "confirmed",
+   "htmlLink": "https://www.google.com/calendar/event?eid=bWp0ODdjdHIwcDA2bGVhanFjN3IyOGk3MTAgdnNjbGtyZnI3OWpzOTEzYTlvYzdrNTJkYm9AZw",
+   "created": "2014-11-19T22:20:20.000Z",
+   "updated": "2014-11-19T22:20:20.788Z",
+   "summary": "lunch at jimmy johns",
+   "location": "jimmy johns",
+   "creator": {
+    "email": "berrproj2@gmail.com",
+    "displayName": "Kevin Tigran"
+   },
+   "organizer": {
+    "email": "vsclkrfr79js913a9oc7k52dbo@group.calendar.google.com",
+    "displayName": "ProjectCalendar",
+    "self": true
+   },
+   "start": {
+    "date": "2014-11-28"
+   },
+   "end": {
+    "date": "2014-11-29"
+   },
+   "iCalUID": "mjt87ctr0p06leajqc7r28i710@google.com",
+   "sequence": 0,
+   "reminders": {
+    "useDefault": true
+   }
+  }
+ ]
+}
