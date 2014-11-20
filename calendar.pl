@@ -1,10 +1,16 @@
 #!/usr/bin/perl
-# Author: Tigran Hakobyan
+# Author: Tigran Hakobyan Kevin Bradley
 # calendar.pl - Calendar perl client based on Google Calendar API. 
+
 
 use strict;
 # uses JSON CPAN module. JSON module must be installed first.
 use JSON qw(decode_json);
+
+use strict; 
+# Needed for escaping strings that are part of html urls
+use URI::Escape;
+
 
 if ( @ARGV < 1 ) {
   print "Usage: perl calendar.pl <access_token> ". "\n";
@@ -52,6 +58,7 @@ while (1) {
 
 		if($command eq "list") {
 			$result = `/bin/bash listevents.sh $access_token $cal_id someoutput`;
+
 			my $json_data = `cat someoutput`;
 
 			my $decode_json = decode_json($json_data);
@@ -69,7 +76,6 @@ while (1) {
 				my $desc = $e->{"desc"};
 
 
-
 				print $summary . "\n";
 				print $start_date . "\n";
 				print $end_date . "\n";
@@ -83,20 +89,34 @@ while (1) {
 			my $event_body = $user_input[1];
 			$result = `/bin/bash addevent.sh $access_token $cal_id $event_body somefile`;
 
+		} elsif($command eq "add_avent") {
+			# TODO: possibly validate input?
+			print "Please enter the event summary: ";
+			my $sum = <STDIN>;
+			print "Please enter the event location: ";
+			my $loc = <STDIN>;
+			print "Please enter the event date (Month Day Year?): ";
+			my $day = <STDIN>;
+			print "Please enter the event start time: ";
+			my $st = <STDIN>;
+			print "Please enter the event end time: ";
+			my $et = <STDIN>;
+			my $event_body = uri_escape($sum . " at " . $loc . " on " . $day . " " . $st . "-" . $et);
+			$result = `addavent.sh $access_token $cal_id $event_body somefile`;
+			# TODO: make sure event was confirmed when added by checking somefile, then deleting somefile
+
 		} elsif($command eq "remove_event") {
 			my $event_id = $user_input[1];
 			$result = `/bin/bash remevent.sh $access_token $cal_id $event_id`;
-
 		} elsif($command eq "exit") {
 			exit;
-		}
-		 else {
+		} else {
 			help();
 		}
 	}
 
 	else {
-			print "Command is not supported yet.";
+		print "Command is not supported yet.";
 	}
 
 	print "\n";
