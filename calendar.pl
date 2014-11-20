@@ -26,7 +26,7 @@ sub help {
 
 # Check if the user input command is supported.
 sub is_supported {
-	my @all_commands = ("list", "add_event", "remove_event", "help");
+	my @all_commands = ("list", "add_event", "remove_event", "help", "exit");
 	my $c = $_[0];
 	for my $i (@all_commands) {
 		if ($i eq $c) {
@@ -37,7 +37,7 @@ sub is_supported {
 }
 
 
-while ($command ne "exit\n" ) {
+while (1) {
 
 	my $line = <STDIN>;
 
@@ -45,21 +45,23 @@ while ($command ne "exit\n" ) {
 
 	$command = $user_input[0];
 
-
 	if (is_supported($command)) {
 
 		if($command eq "list") {
 			$result = `/bin/bash listevents.sh $access_token $cal_id someoutput`;
 
-		} elsif($command eq "add_avent") {
+		} elsif($command eq "add_event") {
 			my $event_body = $user_input[1];
-			$result = `/bin/bash addavent.sh $access_token $cal_id $event_body somefile`;
+			$result = `/bin/bash addevent.sh $access_token $cal_id $event_body somefile`;
 
 		} elsif($command eq "remove_event") {
 			my $event_id = $user_input[1];
-			$result = `/bin/bash remevents.sh $access_token $cal_id $event_id`;
+			$result = `/bin/bash remevent.sh $access_token $cal_id $event_id`;
 
-		} else {
+		} elsif($command eq "exit") {
+			exit;
+		}
+		 else {
 			help();
 		}
 	}
