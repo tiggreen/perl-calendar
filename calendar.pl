@@ -1,5 +1,5 @@
 #!/usr/bin/perl
-# Author: Tigran Hakobyan
+# Author: Tigran Hakobyan Kevin Bradley
 # calendar.pl - Calendar perl client based on Google Calendar API. 
 
 use strict; 

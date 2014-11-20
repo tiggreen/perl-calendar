@@ -1,5 +1,5 @@
 #!/bin/bash
-# Kevin Bradley (kmb3398)
+# Kevin Bradley Tigran Hakobyan
 # Project 2 remevent.sh
 
 # Usage message
