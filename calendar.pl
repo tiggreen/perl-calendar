@@ -6,11 +6,12 @@
 use strict;
 # uses JSON CPAN module. JSON module must be installed first.
 use JSON qw(decode_json);
+#require JSON;
+
 
 use strict; 
 # Needed for escaping strings that are part of html urls
 use URI::Escape;
-
 
 if ( @ARGV < 1 ) {
   print "Usage: perl calendar.pl <access_token> ". "\n";
@@ -45,6 +46,31 @@ sub is_supported {
 	return 0;
 }
 
+# formatting the date
+sub format_date {
+	#2014-12-01T17:00:00-05:00
+	my $dt = $_[0];
+	my @spl = split(':', $dt);
+	my @comps = split("-", $spl[0]);
+
+	my $year = $comps[0];
+	my $month = $comps[1];
+	my $day =  substr $comps[2], 0, 2;
+	my $hour = substr $comps[2], 3, 2;
+	my $minute = $spl[1];
+	return $month . "/" . $day . "/" . $year . " " . $hour . ":" . $minute;
+
+}
+# checks if the command was successful.
+sub is_command_successful {
+	return 1;
+}
+
+# TODO: Must be super pretty. 
+sub event_pretty_print {
+	my ($summary, $start_date, $end_date, $desc) = @_[0, 1, 2, 3];
+	printf("%-15s %15s %15s %50s\n", $summary, $start_date, $end_date, $desc);
+}
 
 while (1) {
 
@@ -65,6 +91,9 @@ while (1) {
 
 			my @events = @{ $decode_json->{'items'} };
 
+			# printing the header
+			printf("%-15s %15s %15s %15s\n\n", "Event Name", "Start Date", "End Date", "Description");
+			
 			foreach my $e (@events) {
 				
 				my $event_id = $e->{"id"};
@@ -73,16 +102,9 @@ while (1) {
 				my $start_date = $e->{"start"}{"dateTime"};
 				my $end_date = $e->{"end"}{"dateTime"};
 				my $summary = $e->{"summary"};
-				my $desc = $e->{"desc"};
-
-
-				print $summary . "\n";
-				print $start_date . "\n";
-				print $end_date . "\n";
+				my $desc = $e->{"description"};
+				event_pretty_print($summary, format_date($start_date), format_date($end_date), $desc);
 			}
-
-
-			#print $cat;
 
 
 		} elsif($command eq "add_event") {
