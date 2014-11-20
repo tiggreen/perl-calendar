@@ -1,0 +1,110 @@
+{
+ "kind": "calendar#events",
+ "etag": "\"1416456778770000\"",
+ "summary": "ProjectCalendar",
+ "description": "This is the calendar we will use for the project.",
+ "updated": "2014-11-20T04:12:58.770Z",
+ "timeZone": "America/New_York",
+ "accessRole": "owner",
+ "defaultReminders": [],
+ "nextSyncToken": "CNDMjdmoiMICENDMjdmoiMICGAU=",
+ "items": [
+  {
+   "kind": "calendar#event",
+   "etag": "\"2832865783184000\"",
+   "id": "2pfnqomti1nsju5ebsivvt76jc",
+   "status": "confirmed",
+   "htmlLink": "https://www.google.com/calendar/event?eid=MnBmbnFvbXRpMW5zanU1ZWJzaXZ2dDc2amMgdnNjbGtyZnI3OWpzOTEzYTlvYzdrNTJkYm9AZw",
+   "created": "2014-11-19T21:34:51.000Z",
+   "updated": "2014-11-19T21:34:51.592Z",
+   "summary": "Lunch Time!",
+   "description": "We're going to have lunch.",
+   "location": "The Pie Men, 57 Mahana Rd, Te Rapa, St Andrews 3200, New Zealand",
+   "creator": {
+    "email": "berrproj2@gmail.com",
+    "displayName": "Kevin Tigran"
+   },
+   "organizer": {
+    "email": "vsclkrfr79js913a9oc7k52dbo@group.calendar.google.com",
+    "displayName": "ProjectCalendar",
+    "self": true
+   },
+   "start": {
+    "dateTime": "2014-12-01T17:00:00-05:00"
+   },
+   "end": {
+    "dateTime": "2014-12-01T18:00:00-05:00"
+   },
+   "iCalUID": "2pfnqomti1nsju5ebsivvt76jc@google.com",
+   "sequence": 0,
+   "reminders": {
+    "useDefault": true
+   }
+  },
+  {
+   "kind": "calendar#event",
+   "etag": "\"2832870566428000\"",
+   "id": "q7midp27vrp6ofl207eqgklf3s",
+   "status": "confirmed",
+   "htmlLink": "https://www.google.com/calendar/event?eid=cTdtaWRwMjd2cnA2b2ZsMjA3ZXFna2xmM3NfMjAxNDExMTlUMjEwMDAwWiB2c2Nsa3Jmcjc5anM5MTNhOW9jN2s1MmRib0Bn",
+   "created": "2014-11-19T22:14:43.000Z",
+   "updated": "2014-11-19T22:14:43.214Z",
+   "summary": "dinner",
+   "creator": {
+    "email": "berrproj2@gmail.com",
+    "displayName": "Kevin Tigran"
+   },
+   "organizer": {
+    "email": "vsclkrfr79js913a9oc7k52dbo@group.calendar.google.com",
+    "displayName": "ProjectCalendar",
+    "self": true
+   },
+   "start": {
+    "dateTime": "2014-11-19T16:00:00-05:00",
+    "timeZone": "America/New_York"
+   },
+   "end": {
+    "dateTime": "2014-11-19T17:00:00-05:00",
+    "timeZone": "America/New_York"
+   },
+   "recurrence": [
+    "RRULE:FREQ=WEEKLY;WKST=MO;INTERVAL=1;BYDAY=TU"
+   ],
+   "iCalUID": "q7midp27vrp6ofl207eqgklf3s@google.com",
+   "sequence": 0,
+   "reminders": {
+    "useDefault": true
+   }
+  },
+  {
+   "kind": "calendar#event",
+   "etag": "\"2832911297402000\"",
+   "id": "jmer38q3nh30nl5uhskh7v9tqo",
+   "status": "confirmed",
+   "htmlLink": "https://www.google.com/calendar/event?eid=am1lcjM4cTNuaDMwbmw1dWhza2g3djl0cW8gdnNjbGtyZnI3OWpzOTEzYTlvYzdrNTJkYm9AZw",
+   "created": "2014-11-20T03:54:04.000Z",
+   "updated": "2014-11-20T03:54:08.701Z",
+   "summary": "Soccer game",
+   "creator": {
+    "email": "berrproj2@gmail.com",
+    "displayName": "Kevin Tigran"
+   },
+   "organizer": {
+    "email": "vsclkrfr79js913a9oc7k52dbo@group.calendar.google.com",
+    "displayName": "ProjectCalendar",
+    "self": true
+   },
+   "start": {
+    "dateTime": "2014-11-20T19:00:00-05:00"
+   },
+   "end": {
+    "dateTime": "2014-11-20T20:00:00-05:00"
+   },
+   "iCalUID": "jmer38q3nh30nl5uhskh7v9tqo@google.com",
+   "sequence": 1,
+   "reminders": {
+    "useDefault": true
+   }
+  }
+ ]
+}

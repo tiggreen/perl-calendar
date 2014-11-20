@@ -2,16 +2,19 @@
 # Author: Tigran Hakobyan
 # calendar.pl - Calendar perl client based on Google Calendar API. 
 
-use strict; 
+use strict;
+# uses JSON CPAN module. JSON module must be installed first.
+use JSON qw(decode_json);
 
-if ( @ARGV < 2 ) {
-  print "Usage: perl calendar.pl <calendar_id> <access_token> ". "\n";
+if ( @ARGV < 1 ) {
+  print "Usage: perl calendar.pl <access_token> ". "\n";
   exit;
 }
 
+# the calendarID is fixed.
+my $cal_id = "vsclkrfr79js913a9oc7k52dbo\@group.calendar.google.com";
 
-my $cal_id = $ARGV[0];
-my $access_token = $ARGV[1];
+my $access_token = $ARGV[0];
 
 my $command = "";
 my $result = "";
@@ -49,6 +52,32 @@ while (1) {
 
 		if($command eq "list") {
 			$result = `/bin/bash listevents.sh $access_token $cal_id someoutput`;
+			my $json_data = `cat someoutput`;
+
+			my $decode_json = decode_json($json_data);
+
+			my @events = @{ $decode_json->{'items'} };
+
+			foreach my $e (@events) {
+				
+				my $event_id = $e->{"id"};
+
+				# we can format the date to be more user friendly.
+				my $start_date = $e->{"start"}{"dateTime"};
+				my $end_date = $e->{"end"}{"dateTime"};
+				my $summary = $e->{"summary"};
+				my $desc = $e->{"desc"};
+
+
+
+				print $summary . "\n";
+				print $start_date . "\n";
+				print $end_date . "\n";
+			}
+
+
+			#print $cat;
+
 
 		} elsif($command eq "add_event") {
 			my $event_body = $user_input[1];
