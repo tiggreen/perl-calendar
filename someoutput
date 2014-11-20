@@ -1,13 +1,13 @@
 {
  "kind": "calendar#events",
- "etag": "\"1416456778770000\"",
+ "etag": "\"1416470456780000\"",
  "summary": "ProjectCalendar",
  "description": "This is the calendar we will use for the project.",
- "updated": "2014-11-20T04:12:58.770Z",
+ "updated": "2014-11-20T08:00:56.780Z",
  "timeZone": "America/New_York",
  "accessRole": "owner",
  "defaultReminders": [],
- "nextSyncToken": "CNDMjdmoiMICENDMjdmoiMICGAU=",
+ "nextSyncToken": "COCJpdPbiMICEOCJpdPbiMICGAU=",
  "items": [
   {
    "kind": "calendar#event",

@@ -28,7 +28,7 @@ sub help {
 
 # Check if the user input command is supported.
 sub is_supported {
-	my @all_commands = ("list", "add_event", "remove_event", "help");
+	my @all_commands = ("list", "add_event", "remove_event", "help", "exit");
 	my $c = $_[0];
 	for my $i (@all_commands) {
 		if ($i eq $c) {
@@ -39,7 +39,7 @@ sub is_supported {
 }
 
 
-while ($command ne "exit\n" ) {
+while (1) {
 
 	my $line = <STDIN>;
 
@@ -47,12 +47,12 @@ while ($command ne "exit\n" ) {
 
 	$command = $user_input[0];
 
-
 	if (is_supported($command)) {
 
 		if($command eq "list") {
 			$result = `/bin/bash listevents.sh $access_token $cal_id someoutput`;
 
+<<<<<<< HEAD
 		} elsif($command eq "add_avent") {
 			# my $event_body = $user_input[1];
 			print "Please enter the event summary: ";
@@ -68,11 +68,20 @@ while ($command ne "exit\n" ) {
 			my $event_body = uri_escape($sum . " at " . $loc . " on " . $day . " " . $st . "-" . $et);
 			$result = `addavent.sh $access_token $cal_id $event_body somefile`;
 			# TODO: make sure event was confirmed when added by checking somefile, then deleting somefile
+=======
+		} elsif($command eq "add_event") {
+			my $event_body = $user_input[1];
+			$result = `/bin/bash addevent.sh $access_token $cal_id $event_body somefile`;
+
+>>>>>>> origin/master
 		} elsif($command eq "remove_event") {
 			my $event_id = $user_input[1];
-			$result = `/bin/bash remevents.sh $access_token $cal_id $event_id`;
+			$result = `/bin/bash remevent.sh $access_token $cal_id $event_id`;
 
-		} else {
+		} elsif($command eq "exit") {
+			exit;
+		}
+		 else {
 			help();
 		}
 	}
