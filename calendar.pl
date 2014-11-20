@@ -52,7 +52,6 @@ while (1) {
 		if($command eq "list") {
 			$result = `/bin/bash listevents.sh $access_token $cal_id someoutput`;
 
-<<<<<<< HEAD
 		} elsif($command eq "add_avent") {
 			# my $event_body = $user_input[1];
 			print "Please enter the event summary: ";
@@ -68,12 +67,10 @@ while (1) {
 			my $event_body = uri_escape($sum . " at " . $loc . " on " . $day . " " . $st . "-" . $et);
 			$result = `addavent.sh $access_token $cal_id $event_body somefile`;
 			# TODO: make sure event was confirmed when added by checking somefile, then deleting somefile
-=======
 		} elsif($command eq "add_event") {
 			my $event_body = $user_input[1];
 			$result = `/bin/bash addevent.sh $access_token $cal_id $event_body somefile`;
 
->>>>>>> origin/master
 		} elsif($command eq "remove_event") {
 			my $event_id = $user_input[1];
 			$result = `/bin/bash remevent.sh $access_token $cal_id $event_id`;
@@ -87,7 +84,7 @@ while (1) {
 	}
 
 	else {
-			print "Command is not supported yet.";
+		print "Command is not supported yet.";
 	}
 
 	print "\n";
