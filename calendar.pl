@@ -3,6 +3,8 @@
 # calendar.pl - Calendar perl client based on Google Calendar API. 
 
 use strict; 
+# Needed for escaping strings that are part of html urls
+use URI::Escape;
 
 if ( @ARGV < 2 ) {
   print "Usage: perl calendar.pl <calendar_id> <access_token> ". "\n";
@@ -52,9 +54,20 @@ while ($command ne "exit\n" ) {
 			$result = `/bin/bash listevents.sh $access_token $cal_id someoutput`;
 
 		} elsif($command eq "add_avent") {
-			my $event_body = $user_input[1];
-			$result = `/bin/bash addavent.sh $access_token $cal_id $event_body somefile`;
-
+			# my $event_body = $user_input[1];
+			print "Please enter the event summary: ";
+			my $sum = <STDIN>;
+			print "Please enter the event location: ";
+			my $loc = <STDIN>;
+			print "Please enter the event date (Month Day Year?): ";
+			my $day = <STDIN>;
+			print "Please enter the event start time: ";
+			my $st = <STDIN>;
+			print "Please enter the event end time: ";
+			my $et = <STDIN>;
+			my $event_body = uri_escape($sum . " at " . $loc . " on " . $day . " " . $st . "-" . $et);
+			$result = `addavent.sh $access_token $cal_id $event_body somefile`;
+			# TODO: make sure event was confirmed when added by checking somefile, then deleting somefile
 		} elsif($command eq "remove_event") {
 			my $event_id = $user_input[1];
 			$result = `/bin/bash remevents.sh $access_token $cal_id $event_id`;
