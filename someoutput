@@ -1,13 +1,13 @@
 {
  "kind": "calendar#events",
- "etag": "\"1416435620935000\"",
+ "etag": "\"1416456778770000\"",
  "summary": "ProjectCalendar",
  "description": "This is the calendar we will use for the project.",
- "updated": "2014-11-19T22:20:20.935Z",
+ "updated": "2014-11-20T04:12:58.770Z",
  "timeZone": "America/New_York",
  "accessRole": "owner",
  "defaultReminders": [],
- "nextSyncToken": "CNjqofDZh8ICENjqofDZh8ICGAU=",
+ "nextSyncToken": "CNDMjdmoiMICENDMjdmoiMICGAU=",
  "items": [
   {
    "kind": "calendar#event",
@@ -78,14 +78,13 @@
   },
   {
    "kind": "calendar#event",
-   "etag": "\"2832871241576000\"",
-   "id": "mjt87ctr0p06leajqc7r28i710",
+   "etag": "\"2832911297402000\"",
+   "id": "jmer38q3nh30nl5uhskh7v9tqo",
    "status": "confirmed",
-   "htmlLink": "https://www.google.com/calendar/event?eid=bWp0ODdjdHIwcDA2bGVhanFjN3IyOGk3MTAgdnNjbGtyZnI3OWpzOTEzYTlvYzdrNTJkYm9AZw",
-   "created": "2014-11-19T22:20:20.000Z",
-   "updated": "2014-11-19T22:20:20.788Z",
-   "summary": "lunch at jimmy johns",
-   "location": "jimmy johns",
+   "htmlLink": "https://www.google.com/calendar/event?eid=am1lcjM4cTNuaDMwbmw1dWhza2g3djl0cW8gdnNjbGtyZnI3OWpzOTEzYTlvYzdrNTJkYm9AZw",
+   "created": "2014-11-20T03:54:04.000Z",
+   "updated": "2014-11-20T03:54:08.701Z",
+   "summary": "Soccer game",
    "creator": {
     "email": "berrproj2@gmail.com",
     "displayName": "Kevin Tigran"
@@ -96,13 +95,13 @@
     "self": true
    },
    "start": {
-    "date": "2014-11-28"
+    "dateTime": "2014-11-20T19:00:00-05:00"
    },
    "end": {
-    "date": "2014-11-29"
+    "dateTime": "2014-11-20T20:00:00-05:00"
    },
-   "iCalUID": "mjt87ctr0p06leajqc7r28i710@google.com",
-   "sequence": 0,
+   "iCalUID": "jmer38q3nh30nl5uhskh7v9tqo@google.com",
+   "sequence": 1,
    "reminders": {
     "useDefault": true
    }
