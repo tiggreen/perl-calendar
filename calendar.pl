@@ -69,10 +69,12 @@ sub is_command_successful {
 # TODO: Must be super pretty. 
 sub event_pretty_print {
 	my ($summary, $start_date, $end_date, $desc) = @_[0, 1, 2, 3];
-	printf("%-15s %15s %15s %50s\n", $summary, $start_date, $end_date, $desc);
+	printf("%-40s %-15s %-15s %-50s\n", $summary, $start_date, $end_date, $desc);
 }
 
 while (1) {
+
+	print ">>> ";
 
 	my $line = <STDIN>;
 
@@ -92,7 +94,7 @@ while (1) {
 			my @events = @{ $decode_json->{'items'} };
 
 			# printing the header
-			printf("%-15s %15s %15s %15s\n\n", "Event Name", "Start Date", "End Date", "Description");
+			#printf("%-15s %15s %15s %15s\n\n", "Event Name", "Start Date", "End Date", "Description");
 			
 			foreach my $e (@events) {
 				
