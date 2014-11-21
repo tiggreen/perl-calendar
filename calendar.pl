@@ -154,10 +154,6 @@ while (1) {
 				);
 			}
 
-		} elsif($command eq "add_event") {
-			my $event_body = $user_input[1];
-			$result = `/bin/bash addevent.sh $access_token $cal_id $event_body somefile`;
-
 		} elsif($command eq "add_avent") {
 			# TODO: possibly validate input?
 			print "Please enter the event summary: ";
@@ -166,10 +162,24 @@ while (1) {
 			my $loc = <STDIN>;
 			print "Please enter the event date (Month Day Year?): ";
 			my $day = <STDIN>;
-			print "Please enter the event start time: ";
-			my $st = <STDIN>;
-			print "Please enter the event end time: ";
-			my $et = <STDIN>;
+			my $st = "";
+			while (1) {
+				print "Please enter the event start time: ";
+				$st = <STDIN>;
+				$st = `echo $st | awk 'tolower($0) ~ /^(0?[[:digit:]]|1[0-2]):[0-5][[:digit:]](am|pm)$/ {print tolower($0)}'`
+				if ($st ne "") {
+					last;
+				}
+			}
+			my $et = "";
+			while (1) {
+				print "Please enter the event end time: ";
+				$et = <STDIN>;
+				$et = `echo $et | awk 'tolower($0) ~ /^(0?[[:digit:]]|1[0-2]):[0-5][[:digit:]](am|pm)$/ {print tolower($0)}'`
+				if ($et ne "") {
+					last;
+				}
+			}
 			my $event_body = uri_escape($sum . " at " . $loc . " on " . $day . " " . $st . "-" . $et);
 			$result = `addavent.sh $access_token $cal_id $event_body somefile`;
 			# TODO: make sure event was confirmed when added by checking somefile, then deleting somefile
