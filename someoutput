@@ -1,13 +1,13 @@
 {
  "kind": "calendar#events",
- "etag": "\"1416511605203000\"",
+ "etag": "\"1416536669150000\"",
  "summary": "ProjectCalendar",
  "description": "This is the calendar we will use for the project.",
- "updated": "2014-11-20T19:26:45.203Z",
+ "updated": "2014-11-21T02:24:29.150Z",
  "timeZone": "America/New_York",
  "accessRole": "owner",
  "defaultReminders": [],
- "nextSyncToken": "CLjAsfj0icICELjAsfj0icICGAU=",
+ "nextSyncToken": "CLC256fSisICELC256fSisICGAU=",
  "items": [
   {
    "kind": "calendar#event",
@@ -315,6 +315,130 @@
     "dateTime": "2015-12-03T10:35:00-05:00"
    },
    "iCalUID": "1fktleiuanfek6t40u5h5kb6f4@google.com",
+   "sequence": 0,
+   "reminders": {
+    "useDefault": true
+   }
+  },
+  {
+   "kind": "calendar#event",
+   "etag": "\"2833072581380000\"",
+   "id": "9m46mnodlath8bbl93m4kr0of8",
+   "status": "confirmed",
+   "htmlLink": "https://www.google.com/calendar/event?eid=OW00Nm1ub2RsYXRoOGJibDkzbTRrcjBvZjggdnNjbGtyZnI3OWpzOTEzYTlvYzdrNTJkYm9AZw",
+   "created": "2014-11-21T02:18:10.000Z",
+   "updated": "2014-11-21T02:18:10.690Z",
+   "summary": "Lunch at Larry's",
+   "location": "Larry's ",
+   "creator": {
+    "email": "berrproj2@gmail.com",
+    "displayName": "Kevin Tigran"
+   },
+   "organizer": {
+    "email": "vsclkrfr79js913a9oc7k52dbo@group.calendar.google.com",
+    "displayName": "ProjectCalendar",
+    "self": true
+   },
+   "start": {
+    "dateTime": "2015-12-03T10:00:00-05:00"
+   },
+   "end": {
+    "dateTime": "2015-12-03T10:35:00-05:00"
+   },
+   "iCalUID": "9m46mnodlath8bbl93m4kr0of8@google.com",
+   "sequence": 0,
+   "reminders": {
+    "useDefault": true
+   }
+  },
+  {
+   "kind": "calendar#event",
+   "etag": "\"2833073099342000\"",
+   "id": "crdkrvqfn0qq71qjkbqn1cd76o",
+   "status": "confirmed",
+   "htmlLink": "https://www.google.com/calendar/event?eid=Y3Jka3J2cWZuMHFxNzFxamticW4xY2Q3Nm8gdnNjbGtyZnI3OWpzOTEzYTlvYzdrNTJkYm9AZw",
+   "created": "2014-11-21T02:22:29.000Z",
+   "updated": "2014-11-21T02:22:29.671Z",
+   "summary": "Lunch at Larry's",
+   "location": "Larry's ",
+   "creator": {
+    "email": "berrproj2@gmail.com",
+    "displayName": "Kevin Tigran"
+   },
+   "organizer": {
+    "email": "vsclkrfr79js913a9oc7k52dbo@group.calendar.google.com",
+    "displayName": "ProjectCalendar",
+    "self": true
+   },
+   "start": {
+    "dateTime": "2015-12-03T10:00:00-05:00"
+   },
+   "end": {
+    "dateTime": "2015-12-03T10:35:00-05:00"
+   },
+   "iCalUID": "crdkrvqfn0qq71qjkbqn1cd76o@google.com",
+   "sequence": 0,
+   "reminders": {
+    "useDefault": true
+   }
+  },
+  {
+   "kind": "calendar#event",
+   "etag": "\"2833073111578000\"",
+   "id": "f5kb5aie4nksvbmshb6rlvbrms",
+   "status": "confirmed",
+   "htmlLink": "https://www.google.com/calendar/event?eid=ZjVrYjVhaWU0bmtzdmJtc2hiNnJsdmJybXMgdnNjbGtyZnI3OWpzOTEzYTlvYzdrNTJkYm9AZw",
+   "created": "2014-11-21T02:22:35.000Z",
+   "updated": "2014-11-21T02:22:35.789Z",
+   "summary": "Lunch at Larry's",
+   "location": "Larry's ",
+   "creator": {
+    "email": "berrproj2@gmail.com",
+    "displayName": "Kevin Tigran"
+   },
+   "organizer": {
+    "email": "vsclkrfr79js913a9oc7k52dbo@group.calendar.google.com",
+    "displayName": "ProjectCalendar",
+    "self": true
+   },
+   "start": {
+    "dateTime": "2015-12-03T10:00:00-05:00"
+   },
+   "end": {
+    "dateTime": "2015-12-03T10:35:00-05:00"
+   },
+   "iCalUID": "f5kb5aie4nksvbmshb6rlvbrms@google.com",
+   "sequence": 0,
+   "reminders": {
+    "useDefault": true
+   }
+  },
+  {
+   "kind": "calendar#event",
+   "etag": "\"2833073338110000\"",
+   "id": "93n6ubo1ktpsdapd1kr1ks0hak",
+   "status": "confirmed",
+   "htmlLink": "https://www.google.com/calendar/event?eid=OTNuNnVibzFrdHBzZGFwZDFrcjFrczBoYWsgdnNjbGtyZnI3OWpzOTEzYTlvYzdrNTJkYm9AZw",
+   "created": "2014-11-21T02:24:29.000Z",
+   "updated": "2014-11-21T02:24:29.055Z",
+   "summary": "Lunch at Larry's",
+   "location": "Larry's ",
+   "creator": {
+    "email": "berrproj2@gmail.com",
+    "displayName": "Kevin Tigran"
+   },
+   "organizer": {
+    "email": "vsclkrfr79js913a9oc7k52dbo@group.calendar.google.com",
+    "displayName": "ProjectCalendar",
+    "self": true
+   },
+   "start": {
+    "dateTime": "2014-12-05T10:00:00-05:00"
+   },
+   "end": {
+    "dateTime": "2014-12-05T10:35:00-05:00"
+   },
+   "iCalUID": "93n6ubo1ktpsdapd1kr1ks0hak@google.com",
    "sequence": 0,
    "reminders": {
     "useDefault": true

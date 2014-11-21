@@ -4,10 +4,15 @@
 
 
 use strict;
-# uses JSON CPAN module. JSON module must be installed first.
+# Uses JSON CPAN module. JSON module must be installed first.
 use JSON qw(decode_json);
-#require JSON;
 
+# Needed for date and time manipulation.
+use DateTime;
+
+# Needed for pretty print. 
+# Required Data::Format::Pretty::Console module from CPAN.
+use Data::Format::Pretty::Console qw(format_pretty);
 
 use strict; 
 # Needed for escaping strings that are part of html urls
@@ -46,9 +51,18 @@ sub is_supported {
 	return 0;
 }
 
-# formatting the date
+
+# Changing the date to a user friendly format.
 sub format_date {
-	#2014-12-01T17:00:00-05:00
+	# getting the Date object.
+	my $dt = $_[0];
+	return $dt->month . "/" . $dt->day . "/" . $dt->year . " " . $dt->hour . ":" . $dt->minute;
+
+}
+
+# The incoming date format is 2014-11-19T22:20:20.935Z. 
+sub create_date {
+	
 	my $dt = $_[0];
 	my @spl = split(':', $dt);
 	my @comps = split("-", $spl[0]);
@@ -58,7 +72,17 @@ sub format_date {
 	my $day =  substr $comps[2], 0, 2;
 	my $hour = substr $comps[2], 3, 2;
 	my $minute = $spl[1];
-	return $month . "/" . $day . "/" . $year . " " . $hour . ":" . $minute;
+
+	# creating the date object
+	my $dt = DateTime->new(
+	    year       => $year,
+	    month      => $month,
+	    day        => $day,
+	    hour       => $hour,
+	    minute     => $minute,
+	    time_zone  => 'local',
+	);
+	return $dt;
 
 }
 # checks if the command was successful.
@@ -95,19 +119,44 @@ while (1) {
 
 			# printing the header
 			#printf("%-15s %15s %15s %15s\n\n", "Event Name", "Start Date", "End Date", "Description");
-			
+			my @event_list;
+
+			my %events_map = {};
+
 			foreach my $e (@events) {
 				
 				my $event_id = $e->{"id"};
 
-				# we can format the date to be more user friendly.
 				my $start_date = $e->{"start"}{"dateTime"};
 				my $end_date = $e->{"end"}{"dateTime"};
 				my $summary = $e->{"summary"};
 				my $desc = $e->{"description"};
-				event_pretty_print($summary, format_date($start_date), format_date($end_date), $desc);
+
+				push(@event_list, [$event_id, $summary, create_date($start_date),
+					 create_date($end_date), $desc]);
+
+				#creating a hashmap: eventId -> Event pairs.
+				$events_map{$event_id} = [$event_id, $summary, create_date($start_date),
+					 create_date($end_date), $desc]; 
 			}
 
+			# Sorting events by their start date.
+			@event_list=sort { $a->[2] <=> $b->[2] } @event_list;
+
+			foreach my $tple (@event_list) {
+			print format_pretty({
+				$tple->[0] => [
+				{
+
+					"1. Summary"     => $tple->[1],
+					"2. Start Date"   => format_date($tple->[2]),
+					"3. End Date"     => format_date($tple->[3]),
+					"4. Description" => $tple->[4]
+				}
+					] 
+				}
+				);
+			}
 
 		} elsif($command eq "add_event") {
 			my $event_body = $user_input[1];
