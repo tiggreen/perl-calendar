@@ -37,7 +37,7 @@ my %id_lookup_table = {};
 sub help {
 	printf("%-30s\n\n", "Available Commands:");
 	printf("%-16s %10s %-30s\n", "list", "<output_file>", "Displays all the events of the user's calendar.");
-	printf("%-16s %10s %-30s\n", "add_event" ,"<event_body>", "Adds a new event to the user's calendar.");
+	printf("%-16s %10s %-30s\n", "add_event", "", "Adds a new event to the user's calendar.");
 	printf("%-16s %10s %-30s\n", "remove_event",  "<event_id>", "Remove the event from the user's calendar.");
 }
 
@@ -104,7 +104,13 @@ sub is_command_successful {
 	return $event->{"status"} eq "confirmed";
 }
 
+my $firstiter = 0;
 while (1) {
+	# Display the list of commands before the first prompt
+	if ($firstiter = 0) {
+		help();
+		$firstiter = 1;
+	}
 
 	print ">>> ";
 
@@ -169,16 +175,16 @@ while (1) {
 			}
 
 		} elsif($command eq "add_avent") {
-			# TODO: possibly validate input?
 			print "Please enter the event summary: ";
 			my $sum = <STDIN>;
 			print "Please enter the event location: ";
 			my $loc = <STDIN>;
+			# Note see writeup, the Google api accepts various formats
 			print "Please enter the event date (Month Day Year?): ";
 			my $day = <STDIN>;
 			my $st = "";
 			while (1) {
-				print "Please enter the event start time: ";
+				print "Please enter the event start time (ie 10:35am): ";
 				$st = <STDIN>;
 				$st = `echo $st | awk 'tolower(\$0) ~ /^(0?[[:digit:]]|1[0-2]):[0-5][[:digit:]](am|pm)\$/ {print tolower(\$0)}'`;
 				if ($st ne "") {
@@ -187,7 +193,7 @@ while (1) {
 			}
 			my $et = "";
 			while (1) {
-				print "Please enter the event end time: ";
+				print "Please enter the event end time: (ie 10:55am)";
 				$et = <STDIN>;
 				$et = `echo $et | awk 'tolower(\$0) ~ /^(0?[[:digit:]]|1[0-2]):[0-5][[:digit:]](am|pm)\$/ {print tolower(\$0)}'`;
 				if ($et ne "") {
@@ -204,22 +210,24 @@ while (1) {
 			} else {
 				print "Something went wrong.";
 			}
-
+			my $unused = `rm add-event.tmp`;
 		} elsif($command eq "remove_event") {
 			my $event_id = $user_input[1];
+			#TODO: verify it is a valid event id
+			#TODO: lookup the event id in the table
 			$result = `/bin/bash remevent.sh $access_token $cal_id $event_id`;
-			#TODO: Check if remove is successful. Very similar to the add event check.
-			# Remove event script has to generate a file too (rem-event.tmp), like add event does. 
-
+			# Note remove event receives no http response file 204-no content
 		} elsif($command eq "exit") {
 			exit;
 		} else {
+			# This should never happen (the command isn't supported)
 			help();
 		}
 	}
 
 	else {
-		print "Command is not supported yet.";
+		print "Command is not supported.";
+		help();
 	}
 
 	print "\n";
