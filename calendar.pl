@@ -31,6 +31,8 @@ my $access_token = $ARGV[0];
 my $command = "";
 my $result = "";
 
+my %id_lookup_table = {};
+
 # help
 sub help {
 	printf("%-30s\n\n", "Available Commands:");
@@ -90,12 +92,6 @@ sub is_command_successful {
 	return 1;
 }
 
-# TODO: Must be super pretty. 
-sub event_pretty_print {
-	my ($summary, $start_date, $end_date, $desc) = @_[0, 1, 2, 3];
-	printf("%-40s %-15s %-15s %-50s\n", $summary, $start_date, $end_date, $desc);
-}
-
 while (1) {
 
 	print ">>> ";
@@ -117,11 +113,9 @@ while (1) {
 
 			my @events = @{ $decode_json->{'items'} };
 
-			# printing the header
-			#printf("%-15s %15s %15s %15s\n\n", "Event Name", "Start Date", "End Date", "Description");
 			my @event_list;
 
-			my %events_map = {};
+			my $enum = 1;
 
 			foreach my $e (@events) {
 				
@@ -132,26 +126,28 @@ while (1) {
 				my $summary = $e->{"summary"};
 				my $desc = $e->{"description"};
 
-				push(@event_list, [$event_id, $summary, create_date($start_date),
+				push(@event_list, [$enum, $summary, create_date($start_date),
 					 create_date($end_date), $desc]);
 
-				#creating a hashmap: eventId -> Event pairs.
-				$events_map{$event_id} = [$event_id, $summary, create_date($start_date),
-					 create_date($end_date), $desc]; 
+				#creating a hashmap: eventNumber -> EventID.
+				$id_lookup_table{$enum} = $event_id;
+				$enum += 1;
 			}
 
 			# Sorting events by their start date.
 			@event_list=sort { $a->[2] <=> $b->[2] } @event_list;
 
 			foreach my $tple (@event_list) {
-			print format_pretty({
-				$tple->[0] => [
-				{
 
-					"1. Summary"     => $tple->[1],
-					"2. Start Date"   => format_date($tple->[2]),
-					"3. End Date"     => format_date($tple->[3]),
-					"4. Description" => $tple->[4]
+			my $header = "Event ". $tple->[0];
+
+			print format_pretty({
+				$header => [
+				{
+					Summary     => $tple->[1],
+					Start   => format_date($tple->[2]),
+					End     => format_date($tple->[3]),
+					Description => $tple->[4]
 				}
 					] 
 				}
