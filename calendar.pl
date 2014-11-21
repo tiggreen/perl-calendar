@@ -137,13 +137,15 @@ while (1) {
 				my $end_date = $e->{"end"}{"dateTime"};
 				my $summary = $e->{"summary"};
 				my $desc = $e->{"description"};
+				my $loc = $e->{"location"};
 
 				if ($start_date && $end_date) {
 					push(@event_list, [$enum, $summary, create_date($start_date),
-						 create_date($end_date), $desc]);
+						 create_date($end_date), $desc, $loc]);
 
-					#creating a hashmap: eventNumber -> EventID.
-					$id_lookup_table{$enum} = $event_id;
+					#creating a hashmap: eventNumber -> Event Fields.
+					$id_lookup_table{$enum} = [$event_id, $summary, create_date($start_date),
+						 create_date($end_date), $desc, $loc];
 					$enum += 1;
 				} 
 			}
@@ -158,10 +160,12 @@ while (1) {
 			print format_pretty({
 				$header => [
 				{
+					# TODO: Location field must be here.  
 					Summary     => $tple->[1],
 					Start   => format_date($tple->[2]),
 					End     => format_date($tple->[3]),
-					Description => $tple->[4]
+					Description => $tple->[4],
+					Location => $tple->5
 				}
 					] 
 				}
