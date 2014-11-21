@@ -66,6 +66,7 @@ sub format_date {
 sub create_date {
 	
 	my $dt = $_[0];
+	print $dt;
 	my @spl = split(':', $dt);
 	my @comps = split("-", $spl[0]);
 
@@ -125,13 +126,15 @@ while (1) {
 				my $end_date = $e->{"end"}{"dateTime"};
 				my $summary = $e->{"summary"};
 				my $desc = $e->{"description"};
+				
+				if ($start_date && $end_date) {
+					push(@event_list, [$enum, $summary, create_date($start_date),
+						 create_date($end_date), $desc]);
 
-				push(@event_list, [$enum, $summary, create_date($start_date),
-					 create_date($end_date), $desc]);
-
-				#creating a hashmap: eventNumber -> EventID.
-				$id_lookup_table{$enum} = $event_id;
-				$enum += 1;
+					#creating a hashmap: eventNumber -> EventID.
+					$id_lookup_table{$enum} = $event_id;
+					$enum += 1;
+				} 
 			}
 
 			# Sorting events by their start date.
