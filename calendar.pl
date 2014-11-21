@@ -66,7 +66,6 @@ sub format_date {
 sub create_date {
 	
 	my $dt = $_[0];
-	print $dt;
 	my @spl = split(':', $dt);
 	my @comps = split("-", $spl[0]);
 
@@ -88,9 +87,21 @@ sub create_date {
 	return $dt;
 
 }
-# checks if the command was successful.
+
+# Checks if add/edit event commands were successful.
+# The operation is successful if its status is "confirmed".
 sub is_command_successful {
-	return 1;
+
+	# The response is JSON. 
+	my $event_json = $_[0];
+
+	my $event = decode_json($event_json);
+
+	# Status of the event. Possible values are:
+	# "confirmed" - The event is confirmed. This is the default status.
+	# "tentative" - The event is tentatively confirmed.
+	# "cancelled" - The event is cancelled.
+	return $event->{"status"} eq "confirmed";
 }
 
 while (1) {
@@ -106,9 +117,9 @@ while (1) {
 	if (is_supported($command)) {
 
 		if($command eq "list") {
-			$result = `/bin/bash listevents.sh $access_token $cal_id someoutput`;
+			$result = `/bin/bash listevents.sh $access_token $cal_id list-events.tmp`;
 
-			my $json_data = `cat someoutput`;
+			my $json_data = `cat list-events.tmp`;
 
 			my $decode_json = decode_json($json_data);
 
@@ -126,7 +137,7 @@ while (1) {
 				my $end_date = $e->{"end"}{"dateTime"};
 				my $summary = $e->{"summary"};
 				my $desc = $e->{"description"};
-				
+
 				if ($start_date && $end_date) {
 					push(@event_list, [$enum, $summary, create_date($start_date),
 						 create_date($end_date), $desc]);
@@ -184,12 +195,22 @@ while (1) {
 				}
 			}
 			my $event_body = uri_escape($sum . " at " . $loc . " on " . $day . " " . $st . "-" . $et);
-			$result = `addavent.sh $access_token $cal_id $event_body somefile`;
+			$result = `addavent.sh $access_token $cal_id $event_body add-event.tmp`;
 			# TODO: make sure event was confirmed when added by checking somefile, then deleting somefile
+			my $json_result = `cat add-event.tmp`;
+			# Checking if add operation
+			if (is_command_successful($json_result)) {
+				print "The event was successfully added";
+			} else {
+				print "Something went wrong.";
+			}
 
 		} elsif($command eq "remove_event") {
 			my $event_id = $user_input[1];
 			$result = `/bin/bash remevent.sh $access_token $cal_id $event_id`;
+			#TODO: Check if remove is successful. Very similar to the add event check.
+			# Remove event script has to generate a file too (rem-event.tmp), like add event does. 
+
 		} elsif($command eq "exit") {
 			exit;
 		} else {
