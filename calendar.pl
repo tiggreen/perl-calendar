@@ -53,6 +53,44 @@ sub is_supported {
 	return 0;
 }
 
+#populate the lookup hashtable
+sub populate_the_event_list {
+
+	$result = `/bin/bash listevents.sh $access_token $cal_id list-events.tmp`;
+
+	my $json_data = `cat list-events.tmp`;
+
+	my $decode_json = decode_json($json_data);
+
+	my @events = @{ $decode_json->{'items'} };
+
+	my @event_list;
+
+	my $enum = 1;
+
+	foreach my $e (@events) {
+		
+		my $event_id = $e->{"id"};
+
+		my $start_date = $e->{"start"}{"dateTime"};
+		my $end_date = $e->{"end"}{"dateTime"};
+		my $summary = $e->{"summary"};
+		my $desc = $e->{"description"};
+		my $loc = $e->{"location"};
+
+		if ($start_date && $end_date) {
+			push(@event_list, [$enum, $summary, create_date($start_date),
+				 create_date($end_date), $desc, $loc]);
+
+			#creating a hashmap: eventNumber -> Event Fields.
+			$id_lookup_table{$enum} = [$event_id, $summary, create_date($start_date),
+				 create_date($end_date), $desc, $loc];
+			$enum += 1;
+		} 
+	}
+	return @event_list;
+
+}
 
 # Changing the date to a user friendly format.
 sub format_date {
@@ -104,6 +142,8 @@ sub is_command_successful {
 	return $event->{"status"} eq "confirmed";
 }
 
+populate_the_event_list();
+
 my $firstiter = 0;
 while (1) {
 	# Display the list of commands before the first prompt
@@ -123,38 +163,8 @@ while (1) {
 	if (is_supported($command)) {
 
 		if($command eq "list") {
-			$result = `/bin/bash listevents.sh $access_token $cal_id list-events.tmp`;
 
-			my $json_data = `cat list-events.tmp`;
-
-			my $decode_json = decode_json($json_data);
-
-			my @events = @{ $decode_json->{'items'} };
-
-			my @event_list;
-
-			my $enum = 1;
-
-			foreach my $e (@events) {
-				
-				my $event_id = $e->{"id"};
-
-				my $start_date = $e->{"start"}{"dateTime"};
-				my $end_date = $e->{"end"}{"dateTime"};
-				my $summary = $e->{"summary"};
-				my $desc = $e->{"description"};
-				my $loc = $e->{"location"};
-
-				if ($start_date && $end_date) {
-					push(@event_list, [$enum, $summary, create_date($start_date),
-						 create_date($end_date), $desc, $loc]);
-
-					#creating a hashmap: eventNumber -> Event Fields.
-					$id_lookup_table{$enum} = [$event_id, $summary, create_date($start_date),
-						 create_date($end_date), $desc, $loc];
-					$enum += 1;
-				} 
-			}
+			my @event_list = populate_the_event_list();
 
 			# Sorting events by their start date.
 			@event_list=sort { $a->[2] <=> $b->[2] } @event_list;
@@ -166,19 +176,18 @@ while (1) {
 			print format_pretty({
 				$header => [
 				{
-					# TODO: Location field must be here.  
 					Summary     => $tple->[1],
 					Start   => format_date($tple->[2]),
 					End     => format_date($tple->[3]),
 					Description => $tple->[4],
-					Location => $tple->5
+					Location => $tple->[5]
 				}
 					] 
 				}
 				);
 			}
 
-		} elsif($command eq "add_avent") {
+		} elsif($command eq "add_event") {
 			print "Please enter the event summary: ";
 			my $sum = <STDIN>;
 			print "Please enter the event location: ";
@@ -205,8 +214,7 @@ while (1) {
 				}
 			}
 			my $event_body = uri_escape($sum . " at " . $loc . " on " . $day . " " . $st . "-" . $et);
-			$result = `addavent.sh $access_token $cal_id $event_body add-event.tmp`;
-			# TODO: make sure event was confirmed when added by checking somefile, then deleting somefile
+			$result = `/bin/bash addevent.sh $access_token $cal_id $event_body add-event.tmp`;
 			my $json_result = `cat add-event.tmp`;
 			# Checking if add operation
 			if (is_command_successful($json_result)) {
@@ -215,12 +223,28 @@ while (1) {
 				print "Something went wrong.";
 			}
 			my $unused = `rm add-event.tmp`;
+			populate_the_event_list();
+
 		} elsif($command eq "remove_event") {
-			my $event_id = $user_input[1];
-			#TODO: verify it is a valid event id
-			#TODO: lookup the event id in the table
-			$result = `/bin/bash remevent.sh $access_token $cal_id $event_id`;
-			# Note remove event receives no http response file 204-no content
+
+			print "Please enter the event number you want to remove (ie 1): ";
+			my $ev_num = <STDIN> + 0;
+
+			# making sure that the event number exists.
+			if (exists($id_lookup_table{$ev_num})) {
+
+				my @event = $id_lookup_table{$ev_num};
+				# getting the event id.
+				my $event_id = $event[0][0];
+
+				$result = `/bin/bash remevent.sh $access_token $cal_id $event_id`;
+				# Note remove event receives no http response file 204-no content
+				# TODO: remove the newly added file.
+				print "The remove of the event was successful.";
+				populate_the_event_list();
+			} else {
+			    print "The event number is invalid.";
+			}
 		} elsif($command eq "exit") {
 			exit;
 		} else {

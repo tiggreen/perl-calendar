@@ -1,13 +1,13 @@
 {
  "kind": "calendar#events",
- "etag": "\"1416547034114000\"",
+ "etag": "\"1416616052850000\"",
  "summary": "ProjectCalendar",
  "description": "This is the calendar we will use for the project.",
- "updated": "2014-11-21T05:17:14.114Z",
+ "updated": "2014-11-22T00:27:32.850Z",
  "timeZone": "America/New_York",
  "accessRole": "owner",
  "defaultReminders": [],
- "nextSyncToken": "CNDPmvb4isICENDPmvb4isICGAU=",
+ "nextSyncToken": "CND684T6jMICEND684T6jMICGAU=",
  "items": [
   {
    "kind": "calendar#event",
@@ -102,36 +102,6 @@
    },
    "iCalUID": "jmer38q3nh30nl5uhskh7v9tqo@google.com",
    "sequence": 1,
-   "reminders": {
-    "useDefault": true
-   }
-  },
-  {
-   "kind": "calendar#event",
-   "etag": "\"2833021342032000\"",
-   "id": "9eiabujuplmoic8g0s586njmnc",
-   "status": "confirmed",
-   "htmlLink": "https://www.google.com/calendar/event?eid=OWVpYWJ1anVwbG1vaWM4ZzBzNTg2bmptbmMgdnNjbGtyZnI3OWpzOTEzYTlvYzdrNTJkYm9AZw",
-   "created": "2014-11-20T19:11:11.000Z",
-   "updated": "2014-11-20T19:11:11.016Z",
-   "summary": "Lunch December 3rd 4pm at Larry's",
-   "creator": {
-    "email": "berrproj2@gmail.com",
-    "displayName": "Kevin Tigran"
-   },
-   "organizer": {
-    "email": "vsclkrfr79js913a9oc7k52dbo@group.calendar.google.com",
-    "displayName": "ProjectCalendar",
-    "self": true
-   },
-   "start": {
-    "dateTime": "2014-11-20T14:11:11-05:00"
-   },
-   "end": {
-    "dateTime": "2014-11-20T15:11:11-05:00"
-   },
-   "iCalUID": "9eiabujuplmoic8g0s586njmnc@google.com",
-   "sequence": 0,
    "reminders": {
     "useDefault": true
    }
@@ -353,68 +323,6 @@
   },
   {
    "kind": "calendar#event",
-   "etag": "\"2833073099342000\"",
-   "id": "crdkrvqfn0qq71qjkbqn1cd76o",
-   "status": "confirmed",
-   "htmlLink": "https://www.google.com/calendar/event?eid=Y3Jka3J2cWZuMHFxNzFxamticW4xY2Q3Nm8gdnNjbGtyZnI3OWpzOTEzYTlvYzdrNTJkYm9AZw",
-   "created": "2014-11-21T02:22:29.000Z",
-   "updated": "2014-11-21T02:22:29.671Z",
-   "summary": "Lunch at Larry's",
-   "location": "Larry's ",
-   "creator": {
-    "email": "berrproj2@gmail.com",
-    "displayName": "Kevin Tigran"
-   },
-   "organizer": {
-    "email": "vsclkrfr79js913a9oc7k52dbo@group.calendar.google.com",
-    "displayName": "ProjectCalendar",
-    "self": true
-   },
-   "start": {
-    "dateTime": "2015-12-03T10:00:00-05:00"
-   },
-   "end": {
-    "dateTime": "2015-12-03T10:35:00-05:00"
-   },
-   "iCalUID": "crdkrvqfn0qq71qjkbqn1cd76o@google.com",
-   "sequence": 0,
-   "reminders": {
-    "useDefault": true
-   }
-  },
-  {
-   "kind": "calendar#event",
-   "etag": "\"2833073111578000\"",
-   "id": "f5kb5aie4nksvbmshb6rlvbrms",
-   "status": "confirmed",
-   "htmlLink": "https://www.google.com/calendar/event?eid=ZjVrYjVhaWU0bmtzdmJtc2hiNnJsdmJybXMgdnNjbGtyZnI3OWpzOTEzYTlvYzdrNTJkYm9AZw",
-   "created": "2014-11-21T02:22:35.000Z",
-   "updated": "2014-11-21T02:22:35.789Z",
-   "summary": "Lunch at Larry's",
-   "location": "Larry's ",
-   "creator": {
-    "email": "berrproj2@gmail.com",
-    "displayName": "Kevin Tigran"
-   },
-   "organizer": {
-    "email": "vsclkrfr79js913a9oc7k52dbo@group.calendar.google.com",
-    "displayName": "ProjectCalendar",
-    "self": true
-   },
-   "start": {
-    "dateTime": "2015-12-03T10:00:00-05:00"
-   },
-   "end": {
-    "dateTime": "2015-12-03T10:35:00-05:00"
-   },
-   "iCalUID": "f5kb5aie4nksvbmshb6rlvbrms@google.com",
-   "sequence": 0,
-   "reminders": {
-    "useDefault": true
-   }
-  },
-  {
-   "kind": "calendar#event",
    "etag": "\"2833073338110000\"",
    "id": "93n6ubo1ktpsdapd1kr1ks0hak",
    "status": "confirmed",
@@ -594,42 +502,6 @@
     "dateTime": "2014-11-21T10:55:00-05:00"
    },
    "iCalUID": "reislqnsgph3n79t62vjresuvc@google.com",
-   "sequence": 0,
-   "reminders": {
-    "useDefault": true
-   }
-  },
-  {
-   "kind": "calendar#event",
-   "etag": "\"2833094067986000\"",
-   "id": "s5kc5k72utd05vnpcjkks56ong",
-   "status": "confirmed",
-   "htmlLink": "https://www.google.com/calendar/event?eid=czVrYzVrNzJ1dGQwNXZucGNqa2tzNTZvbmdfMjAxNDExMjFUMTU0NTAwWiB2c2Nsa3Jmcjc5anM5MTNhOW9jN2s1MmRib0Bn",
-   "created": "2014-11-21T05:17:13.000Z",
-   "updated": "2014-11-21T05:17:13.993Z",
-   "summary": "Coffee at Beans",
-   "location": "Beans ",
-   "creator": {
-    "email": "berrproj2@gmail.com",
-    "displayName": "Kevin Tigran"
-   },
-   "organizer": {
-    "email": "vsclkrfr79js913a9oc7k52dbo@group.calendar.google.com",
-    "displayName": "ProjectCalendar",
-    "self": true
-   },
-   "start": {
-    "dateTime": "2014-11-21T10:45:00-05:00",
-    "timeZone": "America/New_York"
-   },
-   "end": {
-    "dateTime": "2014-11-21T10:55:00-05:00",
-    "timeZone": "America/New_York"
-   },
-   "recurrence": [
-    "RRULE:FREQ=WEEKLY;WKST=MO;INTERVAL=1;BYDAY=WE"
-   ],
-   "iCalUID": "s5kc5k72utd05vnpcjkks56ong@google.com",
    "sequence": 0,
    "reminders": {
     "useDefault": true
