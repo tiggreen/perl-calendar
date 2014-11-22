@@ -1,13 +1,13 @@
 {
  "kind": "calendar#events",
- "etag": "\"1416679937048000\"",
+ "etag": "\"1416687555990000\"",
  "summary": "ProjectCalendar",
  "description": "This is the calendar we will use for the project.",
- "updated": "2014-11-22T18:12:17.048Z",
+ "updated": "2014-11-22T20:19:15.990Z",
  "timeZone": "America/New_York",
- "accessRole": "reader",
+ "accessRole": "owner",
  "defaultReminders": [],
- "nextSyncToken": "CMD7oYPojsICEMD7oYPojsICGAE=",
+ "nextSyncToken": "CPCjobSEj8ICEPCjobSEj8ICGAU=",
  "items": [
   {
    "kind": "calendar#event",
@@ -43,41 +43,6 @@
   },
   {
    "kind": "calendar#event",
-   "etag": "\"2832870566428000\"",
-   "id": "q7midp27vrp6ofl207eqgklf3s",
-   "status": "confirmed",
-   "htmlLink": "https://www.google.com/calendar/event?eid=cTdtaWRwMjd2cnA2b2ZsMjA3ZXFna2xmM3NfMjAxNDExMTlUMjEwMDAwWiB2c2Nsa3Jmcjc5anM5MTNhOW9jN2s1MmRib0Bn",
-   "created": "2014-11-19T22:14:43.000Z",
-   "updated": "2014-11-19T22:14:43.214Z",
-   "summary": "dinner",
-   "creator": {
-    "email": "berrproj2@gmail.com",
-    "displayName": "Kevin Tigran"
-   },
-   "organizer": {
-    "email": "vsclkrfr79js913a9oc7k52dbo@group.calendar.google.com",
-    "displayName": "ProjectCalendar",
-    "self": true
-   },
-   "start": {
-    "dateTime": "2014-11-19T16:00:00-05:00",
-    "timeZone": "America/New_York"
-   },
-   "end": {
-    "dateTime": "2014-11-19T17:00:00-05:00",
-    "timeZone": "America/New_York"
-   },
-   "recurrence": [
-    "RRULE:FREQ=WEEKLY;WKST=MO;INTERVAL=1;BYDAY=TU"
-   ],
-   "iCalUID": "q7midp27vrp6ofl207eqgklf3s@google.com",
-   "sequence": 0,
-   "reminders": {
-    "useDefault": true
-   }
-  },
-  {
-   "kind": "calendar#event",
    "etag": "\"2833093254592000\"",
    "id": "qn7stok5fd7v1rvqikq2b56p20",
    "status": "confirmed",
@@ -104,7 +69,7 @@
    "iCalUID": "qn7stok5fd7v1rvqikq2b56p20@google.com",
    "sequence": 0,
    "reminders": {
-    "useDefault": true
+    "useDefault": false
    }
   },
   {
@@ -135,7 +100,7 @@
    "iCalUID": "bvn1o76r9hmcbqtelndmiq2lec@google.com",
    "sequence": 0,
    "reminders": {
-    "useDefault": true
+    "useDefault": false
    }
   },
   {
@@ -197,12 +162,12 @@
    "iCalUID": "rtrfujlm38q9es4gpja204t904@google.com",
    "sequence": 0,
    "reminders": {
-    "useDefault": true
+    "useDefault": false
    }
   },
   {
    "kind": "calendar#event",
-   "etag": "\"2833262110718000\"",
+   "etag": "\"2833262110516000\"",
    "id": "sc333d6qfv5vpt9s0ubhbq0sdk",
    "status": "confirmed",
    "htmlLink": "https://www.google.com/calendar/event?eid=c2MzMzNkNnFmdjV2cHQ5czB1YmhicTBzZGsgdnNjbGtyZnI3OWpzOTEzYTlvYzdrNTJkYm9AZw",
@@ -227,7 +192,7 @@
    "iCalUID": "sc333d6qfv5vpt9s0ubhbq0sdk@google.com",
    "sequence": 1,
    "reminders": {
-    "useDefault": true
+    "useDefault": false
    }
   },
   {
@@ -287,6 +252,37 @@
     "dateTime": "2014-11-29T21:00:00-05:00"
    },
    "iCalUID": "n5iedn34jia9onmflike2ctp3k@google.com",
+   "sequence": 0,
+   "reminders": {
+    "useDefault": true
+   }
+  },
+  {
+   "kind": "calendar#event",
+   "etag": "\"2833375111980000\"",
+   "id": "d6287qs2d60h5a241jc41e5nh4",
+   "status": "confirmed",
+   "htmlLink": "https://www.google.com/calendar/event?eid=ZDYyODdxczJkNjBoNWEyNDFqYzQxZTVuaDQgdnNjbGtyZnI3OWpzOTEzYTlvYzdrNTJkYm9AZw",
+   "created": "2014-11-22T20:19:15.000Z",
+   "updated": "2014-11-22T20:19:15.990Z",
+   "summary": "Thanksgiving break at New York, NY",
+   "location": "New York, NY ",
+   "creator": {
+    "email": "berrproj2@gmail.com",
+    "displayName": "Kevin Tigran"
+   },
+   "organizer": {
+    "email": "vsclkrfr79js913a9oc7k52dbo@group.calendar.google.com",
+    "displayName": "ProjectCalendar",
+    "self": true
+   },
+   "start": {
+    "dateTime": "2015-11-26T20:15:00-05:00"
+   },
+   "end": {
+    "dateTime": "2015-11-26T20:50:00-05:00"
+   },
+   "iCalUID": "d6287qs2d60h5a241jc41e5nh4@google.com",
    "sequence": 0,
    "reminders": {
     "useDefault": true

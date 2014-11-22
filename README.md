@@ -12,12 +12,12 @@ To run the program:
 >>> perl calendar.pl accesstoken
 
 In order to generate an access token:
-
-1. Go to: https://developers.google.com/oauthplayground/
-2. Select Calendar API v3 -> https://www.googleapis.com/auth/calendar
-3. Hit 'Authorize APIs'
-4. Hit 'Exchange authroization code for tokens'
-5. Copy the access token from the 'access token' field that was created.  This is the access token which should be passed to our script.
+1. Go to: https://accounts.google.com/o/oauth2/auth?redirect_uri=https://developers.google.com/oauthplayground&response_type=code&client_id=407408718192.apps.googleusercontent.com&scope=https://www.googleapis.com/auth/calendar&approval_prompt=force&access_type=offline
+2. Login with the following information
+	UN: BerrProj2
+	PW: ProjectPassword. (note the period)
+3. Click exchange
+4. Copy the access token from the 'access token' field that was created.  This is the access token which should be passed to our script.
 
 Usage:
 
