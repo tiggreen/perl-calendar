@@ -1,0 +1,97 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Perl-calendar by tiggreen</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Perl-calendar</h1>
+        <p>A console based calendar in Perl based on Google Calendar API. </p>
+
+        <p class="view"><a href="https://github.com/tiggreen/perl-calendar">View the Project on GitHub <small>tiggreen/perl-calendar</small></a></p>
+
+
+        <ul>
+          <li><a href="https://github.com/tiggreen/perl-calendar/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/tiggreen/perl-calendar/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/tiggreen/perl-calendar">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h1>
+<a id="perl-calendar" class="anchor" href="#perl-calendar" aria-hidden="true"><span class="octicon octicon-link"></span></a>perl-calendar</h1>
+
+<p>A console based calendar in Perl based on Google Calendar API.</p>
+
+<p>Program requires the following perl modules to be installed in the machine before it can run.</p>
+
+<ol>
+<li>JSON</li>
+<li>Data::Format::Pretty::Console</li>
+</ol>
+
+<p>To run the program:</p>
+
+<div class="highlight highlight-perl"><pre>perl calendar.pl accesstoken</pre></div>
+
+<p>In order to generate an access token:</p>
+
+<ol>
+<li><p>Go to <a href="https://accounts.google.com/o/oauth2/auth?redirect_uri=https://developers.google.com/oauthplayground&amp;response_type=code&amp;client_id=407408718192.apps.googleusercontent.com&amp;scope=https://www.googleapis.com/auth/calendar&amp;approval_prompt=force&amp;access_type=offline">here</a>.</p></li>
+<li><p>Login with the following information
+UN: BerrProj2
+PW: ProjectPassword. (note the period)</p></li>
+<li><p>Click exchange</p></li>
+<li><p>Copy the access token from the 'access token' field that was created.  This is the access token which should be passed to our script.</p></li>
+</ol>
+
+<p>Usage:</p>
+
+<p>To display all the events in the calendar run:</p>
+
+<div class="highlight highlight-perl"><pre>list </pre></div>
+
+<p>To create a new event run:</p>
+
+<pre><code>add_event
+</code></pre>
+
+<p>To edit en existing event run: (Note: the program will ask for an event number which is the number on top of each event if you run list.)</p>
+
+<pre><code>edit_event 
+</code></pre>
+
+<p>To remove an event run:</p>
+
+<pre><code>remove_event
+</code></pre>
+
+<p>To exit the program run:</p>
+
+<pre><code>exit
+</code></pre>
+
+<p>To show the help run:</p>
+
+<pre><code>help
+</code></pre>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/tiggreen">tiggreen</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+    
+  </body>
+</html>
